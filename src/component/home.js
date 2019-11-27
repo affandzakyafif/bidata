@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import {View,Text,StyleSheet,TouchableOpacity,Alert,FlatList,ScrollView} from 'react-native'
+import {View,Text,StyleSheet,TouchableOpacity,Alert,FlatList,ScrollView,ImageBackground} from 'react-native'
 import {createAppContainer} from 'react-navigation'
 import Tombol from 'react-native-action-button'
 
@@ -48,6 +48,7 @@ renderItems=({item}) =>{
   const { student_id, student_name, student_class, student_phone_number, student_email} = item 
 
   return(
+    <View>
     <ScrollView>
       <TouchableOpacity onPress={()=>this.update([`${item.student_id}`,`${item.student_name}`,`${item.student_class}`,`${item.student_phone_number}`,`${item.student_email}`])}>
     <View style={{ alignItems: 'center', marginTop: 50 }}>
@@ -63,6 +64,8 @@ renderItems=({item}) =>{
       </View>
       </TouchableOpacity>
     </ScrollView>
+    </View>
+    
   )
 
 }
@@ -71,6 +74,9 @@ renderItems=({item}) =>{
     render (){
         return (
           <View style={{flex:1}}>
+          <View style={{alignItems:'center'}}>
+               <Text style={{fontSize:34}}>Biodata</Text>
+           </View>    
             <FlatList
               data={this.state.pro}
               ItemSeparatorComponent={this.FlatListItemSeparator}
